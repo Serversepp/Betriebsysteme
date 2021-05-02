@@ -1,30 +1,30 @@
-//
-// Created by serversepp on 28.04.21.
-//
-
-#include <stdio.h>#include <stdio.h>
-#include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#define MAXLINE 150
-#define true 1
-#define false 0
-#include<stdlib.h>
 
+#define MAXLENZEILE 150
 
-// Var sektion
+int main() {
+    char geradeZeile[MAXLENZEILE];
+    char ungeradeZeile[MAXLENZEILE];
 
+    FILE * geradeZeilen;
+    FILE * ungeradeZeilen;
+    FILE * ergebnis;
+    geradeZeilen = fopen("gedicht_even.txt","r"); // a für append w für write
+    ungeradeZeilen = fopen("gedicht_odd.txt", "r");
+    ergebnis = fopen("gedischt_alles.txt", "w");
+    if (geradeZeilen == NULL || ungeradeZeilen == NULL){
+        exit(EXIT_FAILURE);
+    }
+    while (!feof(ungeradeZeilen) || !feof(geradeZeilen) ){
+        fgets(ungeradeZeile, MAXLENZEILE, ungeradeZeilen);
+        fgets(geradeZeile, MAXLENZEILE, geradeZeilen);
+        fprintf(ergebnis,"%s%s" , (feof(ungeradeZeilen)) ? "\0" : ungeradeZeile, (feof(geradeZeilen)) ? "\0" : geradeZeile);
+    }
 
-int main(int argc, char **argv){
-    char line[MAXLINE];
-    int i=0;
-    FILE *fp1, *fp2;
-    bool ret=true;
-    if(argc < 3) {  // Wenn mehr als zwei Argumente gegeben sind wir alles übersprungen
-        printf("USAGE: %s filename\n", *argv);
-        printf("list 2 file names on the command line to be read and printed\n");
+    fclose(ungeradeZeilen);
+    fclose(geradeZeilen);
+    fclose(ergebnis);
 
-        fp1 = fopen(argv[0],"r");
-        fp2 = fopen(argv[1],"r")
-        //pimmrl
+    return 0;
 }
