@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <sys/types.h>
 #include <sys/wait.h>
 
 #define MAXLENZEILE 150
@@ -29,8 +28,6 @@ void odd(FILE *ungeradeZeilen,FILE *ergebnis){
 }
 
 int main() {
-    printf("Hello, World!\n");
-    
 
     FILE * geradeZeilen;
     FILE * ungeradeZeilen;
