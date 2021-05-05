@@ -48,7 +48,7 @@ int main() {
             break;
         case 0:
             even(geradeZeilen,ergebnis);
-            break;
+            exit(0);
         default:
             switch (fork()) {
                 case -1:
@@ -56,7 +56,7 @@ int main() {
                     break;
                 case 0:
                     odd(ungeradeZeilen, ergebnis);
-                    break;
+                    exit(0);
                 default:
                     ;
             }
