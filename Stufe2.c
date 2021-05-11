@@ -63,5 +63,13 @@ int main() {
             wait(NULL);
             wait(NULL);
     }
+        fseek(ergebnis,0L,SEEK_SET);
+    while(!feof(ergebnis)){
+        char ch = fgetc(ergebnis);
+        putchar(ch);
+    }
+    fclose(ungeradeZeilen);
+    fclose(geradeZeilen);
+    fclose(ergebnis);
     return 0;
 }
