@@ -35,7 +35,7 @@ int main() {
 
     geradeZeilen = fopen("gedicht_even.txt","r"); // a für append w für write
     ungeradeZeilen = fopen("gedicht_odd.txt", "r");
-    ergebnis = fopen("gedischt_alles.txt", "w");
+    ergebnis = fopen("gedischt_alles.txt", "rw");
 
     if (geradeZeilen == NULL || ungeradeZeilen == NULL){
         exit(EXIT_FAILURE);
