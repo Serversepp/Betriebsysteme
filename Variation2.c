@@ -32,7 +32,7 @@ int main() {
     FILE * ergebnis;
     even = fopen("gedicht_even.txt","r");
     odd = fopen("gedicht_odd.txt", "r");
-    ergebnis = fopen("gedicht_alles.txt", "rw");
+    ergebnis = fopen("gedicht_alles.txt", "w+");
     if (even == NULL || odd == NULL){
         printf("file couldn'nt be read");
         exit(-1);
