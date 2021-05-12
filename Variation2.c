@@ -59,15 +59,18 @@ int main() {
             }
             wait(NULL);
             wait(NULL);
+
+
     }
     fseek(ergebnis,0L,SEEK_SET);
     while(!feof(ergebnis)){
-        char ch = fgetc(ergebnis);
+        unsigned char ch = fgetc(ergebnis);
         putchar(ch);
     }
+    fclose(ergebnis);
     fclose(odd);
     fclose(even);
-    fclose(ergebnis);
+
     return 0;
 }
 int ReadLine(char *buff, int size, FILE *fp) {
